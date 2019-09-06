@@ -350,3 +350,36 @@ img {
   background: #FFFFFF;
   color: #17A2B8;
 }
+.dragdropfield {
+  width: 100%;
+  height: 150px;
+  background: lightblue;
+}
+.ddh2 {
+  text-align: center;
+}
+.dd-button {
+  margin-top: 10px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 45px;
+  background-color: #17A2B8;
+  color: #FFFFFF;
+  border: 1px solid #C0C0C0;
+  cursor: pointer;
+  font-size: 1.8rem;
+}
+@media (max-width: 500px) {
+  .dd-button {
+    width: 100%;
+  }
+}
+.dd-button:hover {
+  background: #FFFFFF;
+  color: #17A2B8;
+}
