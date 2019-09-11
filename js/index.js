@@ -39,12 +39,13 @@ window.addEventListener('keyup', (event) =>
     container2.forEach((element) => { element.style.border = 'none'; })
 });
 
-// window.addEventListener('wheel', (event) =>
-// {
-//     scale += event.deltaY * 0.001;
-//     bodyItem = document.querySelector('body');
-//     bodyItem.style.transform = 'scale(' + scale + ')'
-// });
+window.addEventListener('wheel', (event) =>
+{
+    scale += event.deltaY * 0.001;
+    bodyItem = document.querySelector('body');
+    bodyItem.style.transform = 'scale(' + scale + ')'
+    event.preventDefault();
+});
 
 // drag/drop events
 let item;
@@ -96,6 +97,13 @@ window.addEventListener('dblclick', event => {
     img.style.transform = 'scale(1.3)';
     img.style.transition = 'transorm 05.s';
 });
+
+const dest = document.querySelector('.destination p');
+
+dest.addEventListener('click', event => {
+    dest.style.backgroundColor = 'lightgrey';
+    //event.stopPropagation();
+})
 
 
 
