@@ -1,7 +1,10 @@
 // Your code goes here
 // mouseover/mouseout events
 const navItems = document.querySelectorAll('.nav a');
-scale = 1.0;
+let scale = 1.0;
+let title = 'Fun Bus';
+let resizeText = '(resizing)';
+let scroll = "";
 
 navItems.forEach((element) =>
 {
@@ -43,12 +46,59 @@ window.addEventListener('keyup', (event) =>
 //     bodyItem.style.transform = 'scale(' + scale + ')'
 // });
 
+// drag/drop events
 let item;
 document.addEventListener('drag', function(event) { }, false);
 document.addEventListener('dragstart', (event) => item = event.target);
+document.addEventListener('dragover', (event) => event.preventDefault() );
 document.addEventListener('drop', (event) => 
 {
     item.parentNode.removeChild(item);
     event.target.appendChild(item);
-})
+});
+
+// load event listener
+//window.addEventListener('load', (event) => alert('Page loaded successfully, thank you!'));
+
+// focus event listener
+window.addEventListener('focus', (event) =>
+{
+    let img = document.querySelectorAll('img');
+    img.forEach((element) => element.style.border = '1px solid red');
+});
+
+// resize event listener
+window.addEventListener('resize', event => 
+{
+    let navTitle = document.querySelector('.logo-heading');
+    navTitle.textContent = title + resizeText + scroll;
+    
+});
+
+// scroll event listener
+window.addEventListener('scroll', event => 
+{
+    scroll = ' (' + window.scrollX + ',' + window.scrollY + ')';
+    title.textContent = title + resizeText + scroll;
+});
+
+// select event listener
+window.addEventListener('select', event => 
+{
+    navTitle = document.querySelector('.logo-heading');
+    const text = event.target.value.substring(event.target.selectionStart, event.target.selectionEnd);
+    navTitle.innerHTML = title + resizeText + scroll + '\nYou selected: ' + text;
+    navTitle.style.fontSize = '12px';
+});
+
+window.addEventListener('dblclick', event => {
+    const img = document.querySelector('.intro');
+    img.style.transform = 'scale(1.3)';
+    img.style.transition = 'transorm 05.s';
+});
+
+
+
+
+
 
